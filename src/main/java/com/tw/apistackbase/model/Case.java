@@ -4,11 +4,17 @@ package com.tw.apistackbase.model;
 //import javax.persistence.Entity;
 //import javax.persistence.Table;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="company")
-public class Case {
+
+@Table(name="case")
+public class Case {  // 案件发生时间
+    @Id
+    @GeneratedValue
+    @NotNull
     private int caseId;
+    @NotNull
     private String caseName;
 
     public int getCaseId() {
