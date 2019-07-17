@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:h2:file:./h2/oocl-agile-fs
     driver-class-name: org.h2.Driver
-    username: murphy
+    username: lee
     password: root
     jpa:
     # create 每次加载hibernate删除表重新建立

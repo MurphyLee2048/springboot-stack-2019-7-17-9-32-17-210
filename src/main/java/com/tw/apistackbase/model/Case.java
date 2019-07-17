@@ -5,17 +5,20 @@ package com.tw.apistackbase.model;
 //import javax.persistence.Table;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.sql.Timestamp;
 
 @Entity
 
 @Table(name="case")
-public class Case {  // 案件发生时间
+public class Case {  // TODO: 案件发生时间
     @Id
     @GeneratedValue
     @NotNull
     private int caseId;
     @NotNull
     private String caseName;
+
+    private long timeMillis = System.currentTimeMillis();
 
     public int getCaseId() {
         return caseId;
@@ -31,5 +34,13 @@ public class Case {  // 案件发生时间
 
     public void setCaseName(String caseName) {
         this.caseName = caseName;
+    }
+
+    public long getTimeMillis() {
+        return timeMillis;
+    }
+
+    public void setTimeMillis(long timeMillis) {
+        this.timeMillis = timeMillis;
     }
 }
