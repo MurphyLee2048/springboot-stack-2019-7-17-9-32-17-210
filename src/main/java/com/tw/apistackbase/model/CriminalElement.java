@@ -1,13 +1,10 @@
 package com.tw.apistackbase.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "criminal-element")
+@Table(name="criminal_element")
 public class CriminalElement {
     @Id
     @GeneratedValue
@@ -18,4 +15,28 @@ public class CriminalElement {
     @NotNull
     private String subjectiveDescription;
 
+
+    public int getElementId() {
+        return elementId;
+    }
+
+    public String getObjectiveDescription() {
+        return objectiveDescription;
+    }
+
+    public String getSubjectiveDescription() {
+        return subjectiveDescription;
+    }
+
+    public void setElementId(int elementId) {
+        this.elementId = elementId;
+    }
+
+    public void setObjectiveDescription(String objectiveDescription) {
+        this.objectiveDescription = objectiveDescription;
+    }
+
+    public void setSubjectiveDescription(String subjectiveDescription) {
+        this.subjectiveDescription = subjectiveDescription;
+    }
 }

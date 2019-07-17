@@ -1,6 +1,7 @@
 package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.model.Case;
+import com.tw.apistackbase.model.CriminalElement;
 import com.tw.apistackbase.repository.CaseInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -40,4 +41,9 @@ public class CaseController {
     public void deleteCaseById(@PathVariable int caseId) {
         caseInterface.deleteById(caseId);
     }
+//
+//    @GetMapping("/cases/{elementId}")
+//    public CriminalElement findCriminalElementByElemetId(@PathVariable int elementId) {
+//        return caseInterface.findById(elementId).get();
+//    }
 }

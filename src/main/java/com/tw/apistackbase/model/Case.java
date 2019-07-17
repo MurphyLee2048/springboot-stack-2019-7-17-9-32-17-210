@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity
-
 @Table(name="case")
 public class Case {  // TODO: 案件发生时间
     @Id
@@ -19,6 +18,10 @@ public class Case {  // TODO: 案件发生时间
     private String caseName;
 
     private long timeMillis = System.currentTimeMillis();
+
+    @OneToOne
+    @JoinColumn(name = "case_element")
+    private CriminalElement criminalElement;
 
     public int getCaseId() {
         return caseId;
