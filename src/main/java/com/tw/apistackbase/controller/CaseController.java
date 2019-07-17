@@ -2,6 +2,7 @@ package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.model.Case;
 import com.tw.apistackbase.model.CriminalElement;
+import com.tw.apistackbase.model.Procuratorate;
 import com.tw.apistackbase.repository.CaseInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -19,17 +20,17 @@ public class CaseController {
         return caseInterface.findById(caseId).get();
     }
 
-    @GetMapping("/cases")
-    public List<Case> findAllCases() {
-        return caseInterface.findAll();
-    }
-
-    // TODO AC3
 //    @GetMapping("/cases")
-//    public List<Case> findAllCasesAndSortedByTime() {
-//        Sort sort = new Sort(Sort.Direction.DESC, "timeMillis");
-//        return caseInterface.findAll(sort);
+//    public List<Case> findAllCases() {
+//        return caseInterface.findAll();
 //    }
+
+//     TODO AC3
+    @GetMapping("/cases")
+    public List<Case> findAllCasesAndSortedByTime() {
+       
+        return caseInterface.findAllByOrderByTimeMillisAsc();
+    }
 
     // TODO AC4
 //    @GetMapping("/cases/{caseName}")
@@ -53,5 +54,7 @@ public class CaseController {
         caseInterface.findById(caseId).get().setCriminalElement(criminalElement);
     }
 
+//    @GetMapping("/procuratorates/{procuratorateId}")
+//    public Procuratorate findProcuratorates=
 
 }

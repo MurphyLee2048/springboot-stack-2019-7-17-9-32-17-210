@@ -17,7 +17,7 @@ public class Case {  // TODO: 案件发生时间
     @NotNull
     private String caseName;
 
-    private long timeMillis = System.currentTimeMillis();
+    private long timeMillis;
 
     @OneToOne
     @JoinColumn(name = "case_element")
