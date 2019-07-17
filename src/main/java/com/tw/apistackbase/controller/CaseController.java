@@ -42,10 +42,15 @@ public class CaseController {
         caseInterface.deleteById(caseId);
     }
 
+    // 为什么只能根据caseId来查找返回case类
     @GetMapping("/cases/{elementId}")
     public CriminalElement findCriminalElementByElemetId(@PathVariable int elementId) {
         return caseInterface.findById(elementId).get().getCriminalElement();
     }
 
+    @PostMapping("/cases/{caseId}")
+    public void addElementToCertainCase(@PathVariable int caseId, @RequestBody CriminalElement criminalElement) {
+        caseInterface.findById(caseId).get().setCriminalElement(criminalElement);
+    }
 
 }
