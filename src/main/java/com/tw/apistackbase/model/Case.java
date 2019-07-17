@@ -1,6 +1,13 @@
 package com.tw.apistackbase.model;
 
-public class Cases {
+
+//import javax.persistence.Entity;
+//import javax.persistence.Table;
+import javax.persistence.*;
+
+@Entity
+@Table(name="company")
+public class Case {
     private int caseId;
     private String caseName;
 
