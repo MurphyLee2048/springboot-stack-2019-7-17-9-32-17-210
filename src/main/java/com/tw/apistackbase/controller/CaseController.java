@@ -40,5 +40,4 @@ public class CaseController {
     public void deleteCaseById(@PathVariable int caseId) {
         caseInterface.deleteById(caseId);
     }
-
 }
