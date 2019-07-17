@@ -41,9 +41,11 @@ public class CaseController {
     public void deleteCaseById(@PathVariable int caseId) {
         caseInterface.deleteById(caseId);
     }
-//
-//    @GetMapping("/cases/{elementId}")
-//    public CriminalElement findCriminalElementByElemetId(@PathVariable int elementId) {
-//        return caseInterface.findById(elementId).get();
-//    }
+
+    @GetMapping("/cases/{elementId}")
+    public CriminalElement findCriminalElementByElemetId(@PathVariable int elementId) {
+        return caseInterface.findById(elementId).get().getCriminalElement();
+    }
+
+
 }

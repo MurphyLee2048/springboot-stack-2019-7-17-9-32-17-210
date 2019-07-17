@@ -46,4 +46,12 @@ public class Case {  // TODO: 案件发生时间
     public void setTimeMillis(long timeMillis) {
         this.timeMillis = timeMillis;
     }
+
+    public CriminalElement getCriminalElement() {
+        return criminalElement;
+    }
+
+    public void setCriminalElement(CriminalElement criminalElement) {
+        this.criminalElement = criminalElement;
+    }
 }
