@@ -48,9 +48,10 @@ public class CaseController {
         return elementRepository.findById(elementId).get();
     }
 
-    @PostMapping("/criminalCases")
+    @PostMapping("/criminalCases/{id}")
     public void addElementToCertainCase(@PathVariable int caseId, @RequestBody CriminalElement criminalElement) {
-        caseRepository.findById(caseId).get().setCriminalElement(criminalElement);
+        CriminalCase criminalCase = caseRepository.findById(caseId).get();
+        criminalCase.setCriminalElement(criminalElement);
     }
 
 //    @GetMapping("/procuratorates/{procuratorateId}")

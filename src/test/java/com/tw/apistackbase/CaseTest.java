@@ -137,16 +137,20 @@ public class CaseTest {
 
     @Test
     void add_element_to_certain_case() {
-        CriminalElement criminalElement1 = new CriminalElement();
-        criminalElement1.setObjectiveDescription("xxx");
-        criminalElement1.setSubjectiveDescription("yyy");
-        elementRepository.save(criminalElement1);
+        CriminalElement criminalElement = new CriminalElement();
+        criminalElement.setObjectiveDescription("xxx");
+        criminalElement.setSubjectiveDescription("yyy");
+        elementRepository.save(criminalElement);
 
-        CriminalCase criminalCase1 = new CriminalCase();
-        criminalCase1.setCaseName("a");
-        criminalCase1.setTimeMillis(1111);
+        CriminalCase criminalCase = new CriminalCase();
+        criminalCase.setCaseName("a");
+        criminalCase.setTimeMillis(1111);
+        caseRepository.save(criminalCase);
 
+        CriminalCase fetchedCriminalCase = caseRepository.findById(criminalCase.getCaseId()).get();
+        fetchedCriminalCase.setCriminalElement(criminalElement);
 
+        assertThat(fetchedCriminalCase.getCriminalElement()).isEqualTo(criminalElement);
     }
 
 }
