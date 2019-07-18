@@ -1,11 +1,9 @@
 package com.tw.apistackbase.controller;
 
-import com.tw.apistackbase.model.Case;
+import com.tw.apistackbase.model.CriminalCase;
 import com.tw.apistackbase.model.CriminalElement;
-import com.tw.apistackbase.model.Procuratorate;
-import com.tw.apistackbase.repository.CaseInterface;
+import com.tw.apistackbase.repository.CaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,27 +11,27 @@ import java.util.List;
 @RestController
 public class CaseController {
     @Autowired
-    private CaseInterface caseInterface;
+    private CaseRepository caseInterface;
 
     @GetMapping("/cases/{caseId}")
-    public Case findCaseById(@PathVariable int caseId) {
+    public CriminalCase findCaseById(@PathVariable int caseId) {
         return caseInterface.findById(caseId).get();
     }
 
     @GetMapping("/cases")
-    public List<Case> findAllCases() {
+    public List<CriminalCase> findAllCases() {
         return caseInterface.findAll();
     }
 
     @GetMapping("/sortedCases")
-    public List<Case> findAllCasesAndSortedByTime() {
+    public List<CriminalCase> findAllCasesAndSortedByTime() {
        
         return caseInterface.findAllByOrderByTimeMillisAsc();
     }
 
     // TODO AC4
 //    @GetMapping("/cases/{caseName}")
-//    public List<Case> findAllCasesByName(@PathVariable String caseName) {
+//    public List<CriminalCase> findAllCasesByName(@PathVariable String caseName) {
 //        return caseInterface.findOne();
 //    }
 

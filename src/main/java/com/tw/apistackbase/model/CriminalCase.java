@@ -9,10 +9,9 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name="case")
-public class Case {
+public class CriminalCase {
     @Id
     @GeneratedValue
-    @NotNull  // todo:
     private int caseId;
     @NotNull
     private String caseName;

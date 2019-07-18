@@ -3,11 +3,9 @@ package com.tw.apistackbase.model;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.UniqueElements;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class Procuratorate {
@@ -21,7 +19,8 @@ public class Procuratorate {
     private String procuratorateName;
 
     @OneToMany
-    private Procurator procurator;
+    @JoinColumn(name = "procuratorate_id")
+    private List<Procurator> procurator;
 
     public int getProcuratorateId() {
         return procuratorateId;
@@ -39,11 +38,11 @@ public class Procuratorate {
         this.procuratorateName = procuratorateName;
     }
 
-    public Procurator getProcurator() {
+    public List<Procurator> getProcurator() {
         return procurator;
     }
 
-    public void setProcurator(Procurator procurator) {
+    public void setProcurator(List<Procurator> procurator) {
         this.procurator = procurator;
     }
 }

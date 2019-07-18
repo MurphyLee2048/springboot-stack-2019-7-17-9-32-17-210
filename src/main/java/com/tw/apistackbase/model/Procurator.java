@@ -1,11 +1,9 @@
 package com.tw.apistackbase.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class Procurator {
     @Id
     @GeneratedValue
@@ -13,10 +11,6 @@ public class Procurator {
 
     @NotNull
     private String name;
-
-    @ManyToOne
-    @JoinColumn(name = "procuratorate_id")
-    private Procuratorate procuratorate;
 
     public int getId() {
         return id;
@@ -26,9 +20,6 @@ public class Procurator {
         return name;
     }
 
-    public Procuratorate getProcuratorate() {
-        return procuratorate;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -38,7 +29,4 @@ public class Procurator {
         this.name = name;
     }
 
-    public void setProcuratorate(Procuratorate procuratorate) {
-        this.procuratorate = procuratorate;
-    }
 }
