@@ -3,6 +3,7 @@ package com.tw.apistackbase;
 import com.tw.apistackbase.model.CriminalCase;
 import com.tw.apistackbase.model.CriminalElement;
 import com.tw.apistackbase.repository.CaseRepository;
+import com.tw.apistackbase.repository.ElementRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestTemplate;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,6 +21,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CaseTest {
     @Autowired
     private CaseRepository caseRepository;
+    @Autowired
+    private ElementRepository elementRepository;
 
     @Test
     void should_find_Case_ById() {
@@ -118,6 +121,19 @@ public class CaseTest {
     }
 
 
+    @Test
+    void find_Criminal_Element_ByElemetId() {
+        CriminalElement criminalElement1 = new CriminalElement();
+        criminalElement1.setObjectiveDescription("xxx");
+        criminalElement1.setSubjectiveDescription("yyy");
+        elementRepository.save(criminalElement1);
+
+        CriminalElement criminalElement = elementRepository
+                .findById(criminalElement1
+                .getElementId()).get();
+
+        assertThat(criminalElement).isEqualTo(criminalElement1);
+    }
 
 
 }

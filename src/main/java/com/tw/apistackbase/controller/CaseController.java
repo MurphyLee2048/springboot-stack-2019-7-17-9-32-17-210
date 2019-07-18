@@ -3,6 +3,7 @@ package com.tw.apistackbase.controller;
 import com.tw.apistackbase.model.CriminalCase;
 import com.tw.apistackbase.model.CriminalElement;
 import com.tw.apistackbase.repository.CaseRepository;
+import com.tw.apistackbase.repository.ElementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,6 +13,8 @@ import java.util.List;
 public class CaseController {
     @Autowired
     private CaseRepository caseInterface;
+
+    private ElementRepository elementRepository;
 
     @GetMapping("/criminalCases/{caseId}")
     public CriminalCase findCaseById(@PathVariable int caseId) {
@@ -40,10 +43,9 @@ public class CaseController {
         caseInterface.deleteById(caseId);
     }
 
-    // 为什么只能根据caseId来查找返回case类
     @GetMapping("/criminalElements/{elementId}")
     public CriminalElement findCriminalElementByElemetId(@PathVariable int elementId) {
-        return caseInterface.findById(elementId).get().getCriminalElement();
+        return elementRepository.findById(elementId).get();
     }
 
     @PostMapping("/criminalCases")
