@@ -9,18 +9,17 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name="case")
-public class Case {  // TODO: 案件发生时间
+public class Case {
     @Id
     @GeneratedValue
-    @NotNull
+    @NotNull  // todo:
     private int caseId;
     @NotNull
     private String caseName;
 
     private long timeMillis;
 
-    @OneToOne
-    @JoinColumn(name = "case_element")
+    @OneToOne(cascade = CascadeType.ALL)
     private CriminalElement criminalElement;
 
     public int getCaseId() {

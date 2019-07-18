@@ -20,13 +20,12 @@ public class CaseController {
         return caseInterface.findById(caseId).get();
     }
 
-//    @GetMapping("/cases")
-//    public List<Case> findAllCases() {
-//        return caseInterface.findAll();
-//    }
-
-//     TODO AC3
     @GetMapping("/cases")
+    public List<Case> findAllCases() {
+        return caseInterface.findAll();
+    }
+
+    @GetMapping("/sortedCases")
     public List<Case> findAllCasesAndSortedByTime() {
        
         return caseInterface.findAllByOrderByTimeMillisAsc();
@@ -49,7 +48,7 @@ public class CaseController {
         return caseInterface.findById(elementId).get().getCriminalElement();
     }
 
-    @PostMapping("/cases/{caseId}")
+    @PostMapping("/cases")
     public void addElementToCertainCase(@PathVariable int caseId, @RequestBody CriminalElement criminalElement) {
         caseInterface.findById(caseId).get().setCriminalElement(criminalElement);
     }
