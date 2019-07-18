@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface CaseRepository extends JpaRepository<CriminalCase, Integer> {
 
-    List<CriminalCase> findAllByOrderByTimeMillisAsc();
+    List<CriminalCase> findAllByOrderByTimeMillisDesc();
 
 }

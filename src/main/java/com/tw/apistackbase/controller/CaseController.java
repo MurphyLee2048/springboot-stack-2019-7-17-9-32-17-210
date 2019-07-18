@@ -26,7 +26,7 @@ public class CaseController {
     @GetMapping("/sortedCases")
     public List<CriminalCase> findAllCasesAndSortedByTime() {
        
-        return caseInterface.findAllByOrderByTimeMillisAsc();
+        return caseInterface.findAllByOrderByTimeMillisDesc();
     }
 
     // TODO AC4
