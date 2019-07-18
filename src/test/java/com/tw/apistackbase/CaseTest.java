@@ -25,7 +25,7 @@ public class CaseTest {
     private ElementRepository elementRepository;
 
     @Test
-    void should_find_Case_ById() {
+    void should_find_case_byId() {
         CriminalCase criminalCase = new CriminalCase();
         criminalCase.setCaseName("a");
         criminalCase.setTimeMillis(1111);
@@ -43,7 +43,7 @@ public class CaseTest {
     }
 
     @Test
-    void should_find_All_Cases() {
+    void should_find_all_cases() {
         CriminalCase criminalCase1 = new CriminalCase();
         criminalCase1.setCaseName("a");
         criminalCase1.setTimeMillis(1111);
@@ -69,7 +69,7 @@ public class CaseTest {
     }
 
     @Test
-    void should_find_All_Cases_And_Sorted_ByTime() {
+    void should_find_all_cases_and_sorted_byTime() {
         CriminalCase criminalCase1 = new CriminalCase();
         criminalCase1.setCaseName("a");
         criminalCase1.setTimeMillis(19700208);
@@ -96,7 +96,7 @@ public class CaseTest {
     }
 
     @Test
-    void delete_Case_ById() {
+    void delete_case_byId() {
         CriminalCase criminalCase1 = new CriminalCase();
         criminalCase1.setCaseName("a");
         criminalCase1.setTimeMillis(1111);
@@ -122,7 +122,7 @@ public class CaseTest {
 
 
     @Test
-    void find_Criminal_Element_ByElemetId() {
+    void find_criminal_element_byElemetId() {
         CriminalElement criminalElement1 = new CriminalElement();
         criminalElement1.setObjectiveDescription("xxx");
         criminalElement1.setSubjectiveDescription("yyy");
@@ -135,5 +135,18 @@ public class CaseTest {
         assertThat(criminalElement).isEqualTo(criminalElement1);
     }
 
+    @Test
+    void add_element_to_certain_case() {
+        CriminalElement criminalElement1 = new CriminalElement();
+        criminalElement1.setObjectiveDescription("xxx");
+        criminalElement1.setSubjectiveDescription("yyy");
+        elementRepository.save(criminalElement1);
+
+        CriminalCase criminalCase1 = new CriminalCase();
+        criminalCase1.setCaseName("a");
+        criminalCase1.setTimeMillis(1111);
+
+
+    }
 
 }

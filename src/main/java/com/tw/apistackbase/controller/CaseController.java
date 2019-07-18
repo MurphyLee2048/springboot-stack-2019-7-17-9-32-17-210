@@ -12,24 +12,24 @@ import java.util.List;
 @RestController
 public class CaseController {
     @Autowired
-    private CaseRepository caseInterface;
-
+    private CaseRepository caseRepository;
+    @Autowired
     private ElementRepository elementRepository;
 
     @GetMapping("/criminalCases/{caseId}")
     public CriminalCase findCaseById(@PathVariable int caseId) {
-        return caseInterface.findById(caseId).get();
+        return caseRepository.findById(caseId).get();
     }
 
     @GetMapping("/criminalCases")
     public List<CriminalCase> findAllCases() {
-        return caseInterface.findAll();
+        return caseRepository.findAll();
     }
 
     @GetMapping("/sortedCases")
     public List<CriminalCase> findAllCasesAndSortedByTime() {
        
-        return caseInterface.findAllByOrderByTimeMillisDesc();
+        return caseRepository.findAllByOrderByTimeMillisDesc();
     }
 
     // TODO AC4
@@ -40,7 +40,7 @@ public class CaseController {
 
     @DeleteMapping("/criminalCases/{caseId}")
     public void deleteCaseById(@PathVariable int caseId) {
-        caseInterface.deleteById(caseId);
+        caseRepository.deleteById(caseId);
     }
 
     @GetMapping("/criminalElements/{elementId}")
@@ -50,7 +50,7 @@ public class CaseController {
 
     @PostMapping("/criminalCases")
     public void addElementToCertainCase(@PathVariable int caseId, @RequestBody CriminalElement criminalElement) {
-        caseInterface.findById(caseId).get().setCriminalElement(criminalElement);
+        caseRepository.findById(caseId).get().setCriminalElement(criminalElement);
     }
 
 //    @GetMapping("/procuratorates/{procuratorateId}")
