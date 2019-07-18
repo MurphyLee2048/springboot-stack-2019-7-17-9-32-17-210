@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 @Table(name="criminal_element")
 public class CriminalElement {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int elementId;
 
     @NotNull

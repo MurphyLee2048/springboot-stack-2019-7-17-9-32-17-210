@@ -4,29 +4,30 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Table(name="procurator")
 public class Procurator {
     @Id
-    @GeneratedValue
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int procuratorId;
 
     @NotNull
-    private String name;
+    private String procuratorName;
 
     public int getId() {
-        return id;
+        return procuratorId;
     }
 
     public String getName() {
-        return name;
+        return procuratorName;
     }
 
 
     public void setId(int id) {
-        this.id = id;
+        this.procuratorId = id;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.procuratorName = name;
     }
 
 }

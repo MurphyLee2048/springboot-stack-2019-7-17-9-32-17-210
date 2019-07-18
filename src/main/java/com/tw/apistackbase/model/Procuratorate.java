@@ -8,13 +8,14 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
+@Table(name="procuratorate")
 public class Procuratorate {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int procuratorateId;
 
     @NotNull
-    @UniqueElements  // TODO
+    @UniqueElements
     @Length(max = 50)
     private String procuratorateName;
 

@@ -2,6 +2,7 @@ package com.tw.apistackbase.controller;
 
 import com.tw.apistackbase.model.CriminalCase;
 import com.tw.apistackbase.model.CriminalElement;
+import com.tw.apistackbase.model.Procuratorate;
 import com.tw.apistackbase.repository.CaseRepository;
 import com.tw.apistackbase.repository.ElementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,8 @@ public class CaseController {
     }
 
 //    @GetMapping("/procuratorates/{procuratorateId}")
-//    public Procuratorate findProcuratorates=
+//    public Procuratorate findProcuratorates(@PathVariable int procuratorateId) {
+//        return elementRepository.findById(procuratorateId).get();
+//    }
 
 }

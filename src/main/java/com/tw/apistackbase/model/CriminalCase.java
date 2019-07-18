@@ -8,10 +8,10 @@ import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name="case")
+@Table(name="criminal_case")
 public class CriminalCase {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int caseId;
     @NotNull
     private String caseName;
