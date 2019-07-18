@@ -91,4 +91,29 @@ public class CaseTest {
         assertThat(fetchedAllCriminalCase.get(0).getTimeMillis()).isEqualTo(19700209);
         assertThat(fetchedAllCriminalCase.get(1).getTimeMillis()).isEqualTo(19700208);
     }
+
+    @Test
+    void delete_Case_ById() {
+        CriminalCase criminalCase1 = new CriminalCase();
+        criminalCase1.setCaseName("a");
+        criminalCase1.setTimeMillis(1111);
+        CriminalElement criminalElement1 = new CriminalElement();
+        criminalElement1.setObjectiveDescription("xxx");
+        criminalElement1.setSubjectiveDescription("yyy");
+        criminalCase1.setCriminalElement(criminalElement1);
+        caseRepository.save(criminalCase1);
+
+        CriminalCase criminalCase2 = new CriminalCase();
+        criminalCase2.setCaseName("b");
+        criminalCase2.setTimeMillis(1111);
+        CriminalElement criminalElement2 = new CriminalElement();
+        criminalElement2.setObjectiveDescription("xxx");
+        criminalElement2.setSubjectiveDescription("yyy");
+        criminalCase2.setCriminalElement(criminalElement2);
+        caseRepository.save(criminalCase2);
+
+        caseRepository.deleteById(criminalCase1.getCaseId());
+
+        assertThat(caseRepository.findAll()).doesNotContain(criminalCase1);
+    }
 }
